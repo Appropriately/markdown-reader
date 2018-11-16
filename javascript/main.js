@@ -14,7 +14,7 @@ function loadMarkdownFromFile(file) {
     dataType: 'html',
     async: true,
     success: function(data) {
-      $("#markdown-here").html(converter.makeHtml(data));
+      $("#markdown").html(converter.makeHtml(data));
     }
   });
 } // test()

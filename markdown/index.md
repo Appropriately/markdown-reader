@@ -1,7 +1,5 @@
 # Test page
 
----
-
 ## Here is an image
 
 ![An image](./images/test.jpg)
