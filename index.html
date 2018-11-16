@@ -15,11 +15,16 @@
   <link rel="shortcut icon" href="favicon.ico">
 </head>
 
-<body onload="test()">
+<body onload="loadMarkdownFromFile('markdown/index.md')">
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark box-shadow">
       <div class="container d-flex justify-content-between">
-        <a class="navbar-brand" href="#"><i class="fab fa-markdown"></i> Markdown Test</a>
+        <a href="#" role="button" class="navbar-brand" onclick="loadMarkdownFromFile('markdown/index.md')"><i class="fab fa-markdown"></i> Markdown Test</a>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="#" role="button" class="nav-link" onclick="loadMarkdownFromFile('README.md')">About</a>
+          </li>
+        </ul>
       </div>
     </nav>
   </header>

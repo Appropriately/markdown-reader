@@ -3,13 +3,13 @@ function setOptions() {
   showdown.setFlavor('github');
 } // setOptions
 
-function test() {
+// Given a files location, load that file and update the html
+function loadMarkdownFromFile(file) {
   setOptions();
-  var markdownFileLocation = 'markdown/index.md';
   var converter = new showdown.Converter();
-  
+
   $.ajax({
-    url: markdownFileLocation,
+    url: file,
     type: 'get',
     dataType: 'html',
     async: true,
