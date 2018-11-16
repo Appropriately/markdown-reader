@@ -1,19 +1,3 @@
-// Get text from a specific url
-function getText(myUrl) {
-  var result = null;
-  $.ajax({
-    url: myUrl,
-    type: 'get',
-    dataType: 'html',
-    async: false,
-    success: function(data) {
-      result = data;
-    }
-  });
-  FileReady = true;
-  return result;
-} // getText()
-
 // Set the options for the showdown markdown convertor
 function setOptions() {
   showdown.setFlavor('github');
@@ -23,6 +7,14 @@ function test() {
   setOptions();
   var markdownFileLocation = 'markdown/index.md';
   var converter = new showdown.Converter();
-  var md = getText(markdownFileLocation);
-  $("#markdown-here").html(converter.makeHtml(md));
+  
+  $.ajax({
+    url: markdownFileLocation,
+    type: 'get',
+    dataType: 'html',
+    async: true,
+    success: function(data) {
+      $("#markdown-here").html(converter.makeHtml(data));
+    }
+  });
 } // test()
