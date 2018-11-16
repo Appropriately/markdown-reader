@@ -2,6 +2,10 @@
 
 ---
 
+## Here is an image
+
+![An image](../images/test.jpg)
+
 ## Here is some text!
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque semper pharetra metus, vestibulum laoreet nisi. Integer ullamcorper magna lacus, ac tempor diam venenatis a. Vestibulum congue odio non varius luctus. Cras et efficitur augue, eu fringilla ipsum. Aliquam fermentum est odio, eu porttitor est viverra congue. Donec vestibulum vulputate urna. Curabitur scelerisque viverra dolor, in aliquam mi. In hac habitasse platea dictumst. Pellentesque vitae elit hendrerit, suscipit arcu in, porta urna.
