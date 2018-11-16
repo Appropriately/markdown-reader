@@ -4,7 +4,7 @@
 
 ## Here is an image
 
-![An image](../images/test.jpg)
+![An image](./images/test.jpg)
 
 ## Here is some text!
 
