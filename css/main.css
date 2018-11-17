@@ -3,13 +3,20 @@ img {
   height: auto;
 }
 
+nav {
+  z-index: 5;
+  box-shadow: 0 0 2px 1px black;
+}
+
 #main{
   min-height: 100vh;
 }
 
 #navigator {
+  z-index: 3;
   width: 100%;
   background: lightgray;
+  box-shadow: 0 0 2px 1px darkgray;
 }
 
 #navigator .layer {
