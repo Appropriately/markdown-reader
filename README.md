@@ -2,4 +2,27 @@
 
 ## About
 
-A Javascript Markdown reader
+A Javascript Markdown reader produced using:
+
+* [Bootstrap 4](https://getbootstrap.com/)
+* [Font Awesome](https://fontawesome.com/)
+* [Showdown JS](https://github.com/showdownjs/showdown)
+  - Used for converting the markdown to html
+
+## Notes on the use of markdown
+
+### Creating links
+
+To navigate between the pages, you'll need to call Javascript. Because the markdown reader will render it as `<a href="THE LINK HERE"></a>`, we can actually pass it the javascript needed to render pages. I would like to make this significantly more inteligent later on. But for now, you can do this:
+
+```markdown
+[I'll take you to the homepage!](javascript:loadMarkdownFromFile('markdown/index.md');)
+```
+
+Which will render it like this on the page:
+
+```html
+<a href="javascript:loadMarkdownFromFile('markdown/index.md');">I'll take you to the homepage!</a>
+```
+
+The link ([I'll take you to the homepage!](javascript:loadMarkdownFromFile('markdown/index.md');)) when clicked will load the index page for the site.
