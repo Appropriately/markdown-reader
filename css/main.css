@@ -3,6 +3,28 @@ img {
   height: auto;
 }
 
+#navigator {
+  width: 100%;
+  min-height: 100px;
+  max-height: 100%;
+  background: lightgray;
+  padding: 10px;
+}
+
+#navigator .layer {
+  border-left: 3px solid black;
+  padding: 10px;
+}
+
+#navigator .document {
+  color: black;
+  text-shadow: 1px 1px 1px darkgray;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: transparent;
+  display: block;
+}
+
 #markdown pre {
   white-space: pre-wrap;       /* css-3 */
   white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
@@ -13,7 +35,7 @@ img {
   border: 1px solid #dfdfdf;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
-  padding: 0.125rem 0.3125rem 0.0625rem;
+  padding: 0.3125rem;
 }
 
 #markdown h1, h2, h3 {
