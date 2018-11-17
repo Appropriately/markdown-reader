@@ -18,7 +18,7 @@
 <body onload="renderIndex()">
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark box-shadow">
-      <div class="container d-flex justify-content-between">
+      <div class="container-fluid d-flex justify-content-between">
         <a href="javascript:renderIndex();" role="button" class="navbar-brand"><i class="fab fa-markdown"></i> Markdown Test</a>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
@@ -29,21 +29,20 @@
     </nav>
   </header>
 
-  <main class="mb-5">
-    <!-- Site navigation will go here -->
-    <div id="navigator" class="mb-2">
-      <div class="container">
-        <div class="layer">
-          <a href="javascript:loadMarkdownFromFile('markdown/index.md');" role="button" class="document"><i class="fas fa-home"></i> Home</a>
-          <a href="javascript:loadMarkdownFromFile('README.md');" role="button" class="document"><i class="fab fa-readme"></i> Project README</a>
-          <a href="javascript:loadMarkdownFromFile('markdown/pentesting-notes.md');" role="button" class="document"><i class="fas fa-laptop-code"></i> Pentesting notes</a>
+  <main class="">
+    <div class="container-fluid">
+      <div class="row" id="main">
+        <!-- Side panel -->
+        <div class="col-lg-3 p-3" id="navigator">
+          <div class="layer">
+            <a href="javascript:loadMarkdownFromFile('markdown/index.md');" role="button" class="document"><i class="fas fa-home"></i> Home</a>
+            <a href="javascript:loadMarkdownFromFile('README.md');" role="button" class="document"><i class="fab fa-readme"></i> Project README</a>
+            <a href="javascript:loadMarkdownFromFile('markdown/pentesting-notes.md');" role="button" class="document"><i class="fas fa-laptop-code"></i> Pentesting notes</a>
+          </div>
         </div>
+        <!-- Markdown content -->
+        <div class="col-lg-9 p-5" id="markdown"></div>
       </div>
-    </div>
-
-    <!-- The markdown will go here -->
-    <div class="container">
-      <div id="markdown"></div>
     </div>
   </main>
 

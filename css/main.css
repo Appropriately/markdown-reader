@@ -3,12 +3,13 @@ img {
   height: auto;
 }
 
+#main{
+  min-height: 100vh;
+}
+
 #navigator {
   width: 100%;
-  min-height: 100px;
-  max-height: 100%;
   background: lightgray;
-  padding: 10px;
 }
 
 #navigator .layer {
@@ -24,6 +25,8 @@ img {
   background-color: transparent;
   display: block;
 }
+
+#markdown {}
 
 #markdown pre {
   white-space: pre-wrap;       /* css-3 */
