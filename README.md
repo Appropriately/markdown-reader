@@ -36,3 +36,18 @@ Which will render it like this on the page:
 ```
 
 The link ([I'll take you to the homepage!](javascript:loadMarkdownFromFile('markdown/index.md');)) when clicked will load the index page for the site.
+
+### Documentation
+
+There may be times when you want some documentation on your markdown file. The `create_structure.py` function has the ability to understand a very simple form of documenting a file to include additional information. See the about me page as an example:
+
+```markdown
+<!---DOC:About me;A page about me;Sean Lewis-->
+# About me
+```
+
+Where the format is:
+
+```markdown
+<!---DOC:TITLE;DESCRIPTION;AUTHOR-->
+```

@@ -2,14 +2,18 @@
   "directory": "markdown", 
   "files": [
     {
+      "description": "The index page", 
+      "author": "Sean Lewis", 
       "full_path": "markdown/index.md", 
-      "file": "index.md", 
-      "size": 4312
+      "file": "Index", 
+      "size": 4356
     }, 
     {
+      "description": "A page about me", 
+      "author": "Sean Lewis", 
       "full_path": "markdown/ABOUT_ME.md", 
-      "file": "ABOUT_ME.md", 
-      "size": 11
+      "file": "About me", 
+      "size": 59
     }
   ], 
   "directories": [
@@ -17,9 +21,11 @@
       "directory": "notes", 
       "files": [
         {
+          "description": "Notes that I took while at the pentesting course", 
+          "author": "Sean Lewis", 
           "full_path": "markdown/notes/pentesting-notes.md", 
-          "file": "pentesting-notes.md", 
-          "size": 4952
+          "file": "Secarma Pentesting notes", 
+          "size": 5049
         }
       ]
     }

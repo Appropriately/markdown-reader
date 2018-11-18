@@ -6,8 +6,14 @@ import os
 import json
 
 
+# Given some information on a file, output the information as a json object
 def output_file_json(file, root):
     full_path = os.sep.join([root, file])
+
+    # See if the first line has information on the file
+    doc_line = None;
+    with open(full_path) as f:
+        doc_line = f.readline()
 
     # Construct the object
     object = {
@@ -15,6 +21,13 @@ def output_file_json(file, root):
         "full_path": full_path,
         "size": int(os.stat(full_path)[6])
     }
+
+    # Handle adding the doc_line params
+    if doc_line[:9] == "<!---DOC:":
+        documentation = doc_line[9:][:-4].split(';')
+        object['file'] = documentation[0]
+        object['description'] = documentation[1]
+        object['author'] = documentation[2]
 
     return object
 

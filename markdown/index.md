@@ -1,3 +1,4 @@
+<!---DOC:Index;The index page;Sean Lewis-->
 # Test page
 
 ## Here is an image
