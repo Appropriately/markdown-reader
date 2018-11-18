@@ -9,11 +9,26 @@ nav {
   background: linear-gradient(124deg, rgba(52,58,64,1) 0%, rgba(82,82,82,1) 100%);
 }
 
+@media (min-width: 992px) {
+  .sidebar-card {
+    max-width: 350px;
+    margin: 20px auto !important;
+  }
+}
+
 .sidebar-card {
+  padding: 10px;
   background-color: white;
   box-shadow: 2px 2px 2px darkgray;
-  max-width: 350px;
-  margin: 20px auto;
+  margin: 20px 10px;
+}
+
+.sidebar-card-content {
+  margin-top: 10px;
+}
+
+.sidebar-card-title:hover {
+  color: #444444;
 }
 
 #main{
@@ -35,8 +50,6 @@ nav {
 
 #navigator .document {
   color: black;
-  text-shadow: 1px 1px 1px darkgray;
-  font-weight: bold;
   text-decoration: none;
   background-color: transparent;
   display: block;
@@ -72,4 +85,12 @@ nav {
 #markdown h1, #markdown h2, #markdown h3, #markdown h4, #markdown h5, #markdown h6 {
   padding: 5px 0 5px 0;
   margin-bottom: 20px;
+}
+
+[data-toggle="collapse"] .fa:before {
+  content: "\f077";
+}
+
+[data-toggle="collapse"].collapsed .fa:before {
+  content: "\f078";
 }
