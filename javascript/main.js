@@ -5,13 +5,26 @@ function onPageLoad() {
   var page = url.searchParams.get("page");
 
   // Check if there are any URL params
-  if (page === null || page.slice(-2) !== 'md') {
+  if (page === null) {
+    renderIndex();
+  } else if (page.slice(-2) !== 'md') {
+    appendAlert("danger", "The file is not the correct format.");
     renderIndex();
   } else {
     loadMarkdownFromFile(page);
-  }
-
+  } // if
 } // onPageLoad
+
+// Appends an alert to the page when called.
+// Some common alertTypes include success, danger, warning & info
+function appendAlert(alertType, message) {
+  $( "#alerts" ).append(
+    "<div class='alert alert-" + alertType +
+    " alert-dismissible fade show' role='alert'>" + message +
+    "<button type='button' class='close' data-dismiss='alert' " +
+    "aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>"
+  );
+} // appendAlert
 
 // Set the options for the showdown markdown convertor
 function setOptions() {
@@ -23,7 +36,7 @@ function renderIndex() {
 }
 
 function handleBadLink(link) {
-  alert("What the hell is " + link); // TODO: Make this give a page alert instead
+  appendAlert("danger", "The link " + link + " doesn't exist!");
   renderIndex(); // Default to the index page.
 } // handleBadLink
 
@@ -35,7 +48,7 @@ function loadMarkdownFromFile(file) {
   // Check file has been specified
   if(file === '') {
     alert("No file specified");
-  }
+  } // if
 
   $.ajax({
     url: file,
