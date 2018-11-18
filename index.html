@@ -34,14 +34,23 @@
       <div class="row" id="main">
         <!-- Side panel -->
         <div class="col-lg-3 p-3" id="navigator">
-          <div class="layer">
-            <a href="javascript:loadMarkdownFromFile('markdown/index.md');" role="button" class="document"><i class="fas fa-home"></i> Home</a>
-            <a href="javascript:loadMarkdownFromFile('README.md');" role="button" class="document"><i class="fab fa-readme"></i> Project README</a>
-            <a href="javascript:loadMarkdownFromFile('markdown/pentesting-notes.md');" role="button" class="document"><i class="fas fa-laptop-code"></i> Pentesting notes</a>
+          <div class="sidebar-card p-3">
+            <h5><i class="fas fa-info-circle"></i> Information</h5>
+            <p>INSERT SOME INFORMATION ON THE FILE HERE</p>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="layer">
+              <a href="javascript:loadMarkdownFromFile('markdown/index.md');" role="button" class="document"><i class="fas fa-home"></i> Home</a>
+              <a href="javascript:loadMarkdownFromFile('README.md');" role="button" class="document"><i class="fab fa-readme"></i> Project README</a>
+              <a href="javascript:loadMarkdownFromFile('markdown/pentesting-notes.md');" role="button" class="document"><i class="fas fa-laptop-code"></i> Pentesting notes</a>
+            </div>
           </div>
         </div>
         <!-- Markdown content -->
-        <div class="col-lg-9 p-5" id="markdown"></div>
+        <div class="col-lg-9 p-3 container" id="markdown-wrapper">
+          <div id="markdown"></div>
+        </div>
       </div>
     </div>
   </main>
