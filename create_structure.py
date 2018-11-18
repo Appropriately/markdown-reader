@@ -49,7 +49,7 @@ def directory_to_json(current_directory):
         sub_directories.append(directory_to_json(next_directory))
 
     json_object = {
-        "directory": current.split('/')[-1]
+        "directory": current.split('/')[-1].capitalize() 
     }
 
     if directories != []:
