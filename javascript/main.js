@@ -59,6 +59,10 @@ function loadMarkdownFromFile(file) {
       // Ensure that there is actually data there
       if(data === null) handleBadLink(file);
 
+      // Get the name of the file
+      var name = file.split('/').pop();
+      $(document).attr("title", "Markdown Reader - " + name);
+
       $("#markdown").html(converter.makeHtml(data));
     },
     error: function() {
