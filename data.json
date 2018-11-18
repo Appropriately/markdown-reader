@@ -4,14 +4,14 @@
     {
       "description": "The index page", 
       "author": "Sean Lewis", 
-      "full_path": "Markdown/index.md", 
+      "full_path": "markdown/index.md", 
       "file": "Index", 
       "size": 4356
     }, 
     {
       "description": "A page about me", 
       "author": "Sean Lewis", 
-      "full_path": "Markdown/aboutme.md", 
+      "full_path": "markdown/aboutme.md", 
       "file": "About me", 
       "size": 59
     }
@@ -23,7 +23,7 @@
         {
           "description": "Notes that I took while at the pentesting course", 
           "author": "Sean Lewis", 
-          "full_path": "Markdown/notes/pentestingnotes.md", 
+          "full_path": "markdown/notes/pentestingnotes.md", 
           "file": "Secarma Pentesting notes", 
           "size": 5049
         }

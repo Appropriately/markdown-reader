@@ -49,7 +49,7 @@ def directory_to_json(current_directory):
         sub_directories.append(directory_to_json(next_directory))
 
     json_object = {
-        "directory": current.split('/')[-1].capitalize() 
+        "directory": current.split('/')[-1].capitalize()
     }
 
     if directories != []:
@@ -63,4 +63,4 @@ def directory_to_json(current_directory):
 
 # Output a file
 with open('data.json', 'w+') as outfile:
-    json.dump(directory_to_json('Markdown'), outfile, indent=2)
+    json.dump(directory_to_json('markdown'), outfile, indent=2)
