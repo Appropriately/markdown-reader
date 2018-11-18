@@ -63,4 +63,4 @@ def directory_to_json(current_directory):
 
 # Output a file
 with open('data.json', 'w+') as outfile:
-    json.dump(directory_to_json('markdown'), outfile, indent=2)
+    json.dump(directory_to_json('Markdown'), outfile, indent=2)
