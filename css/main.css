@@ -45,7 +45,8 @@ nav {
 
 #navigator .layer {
   border-left: 3px solid black;
-  padding: 10px;
+  padding: 0 10px;
+  margin: 20px 0;
 }
 
 #navigator .document {
@@ -53,6 +54,15 @@ nav {
   text-decoration: none;
   background-color: transparent;
   display: block;
+  padding: 5px 0;
+}
+
+#navigator .folder {
+  color: black;
+  display: block;
+  padding: 5px 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 #navigator .document:hover {
@@ -91,12 +101,4 @@ nav {
 #markdown h1, #markdown h2, #markdown h3, #markdown h4, #markdown h5, #markdown h6 {
   padding: 5px 0 5px 0;
   margin-bottom: 20px;
-}
-
-[data-toggle="collapse"] .fa:before {
-  content: "\f077";
-}
-
-[data-toggle="collapse"].collapsed .fa:before {
-  content: "\f078";
 }
