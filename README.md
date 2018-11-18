@@ -9,6 +9,16 @@ A Javascript Markdown reader produced using:
 * [Showdown JS](https://github.com/showdownjs/showdown)
   - Used for converting the markdown to html
 
+## Usage
+
+Because I'm very lazy, you can run the application by simply running the `run.sh` script at the project root.
+
+```bash
+bash run.sh
+```
+
+This will automatically build the `json` that defines the structure of the project, `create_structure.py`.
+
 ## Notes on the use of markdown
 
 ### Creating links

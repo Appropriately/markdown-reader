@@ -1,0 +1,27 @@
+{
+  "directory": "markdown", 
+  "files": [
+    {
+      "full_path": "markdown/index.md", 
+      "file": "index.md", 
+      "size": 4312
+    }, 
+    {
+      "full_path": "markdown/ABOUT_ME.md", 
+      "file": "ABOUT_ME.md", 
+      "size": 11
+    }
+  ], 
+  "directories": [
+    {
+      "directory": "notes", 
+      "files": [
+        {
+          "full_path": "markdown/notes/pentesting-notes.md", 
+          "file": "pentesting-notes.md", 
+          "size": 4952
+        }
+      ]
+    }
+  ]
+}
