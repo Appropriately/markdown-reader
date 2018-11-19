@@ -40,6 +40,7 @@ function appendFolder(json, parent) {
   if ( json.hasOwnProperty('directories') ) {
     // Recurisvely call for each one!
     $.each(json['directories'], function(index, value) {
+      root.append("<div style='height:15px;'></div>")
       if ( json.hasOwnProperty('files') ) appendFolder(value, root);
     });
   } // if
