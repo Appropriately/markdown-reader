@@ -37,6 +37,12 @@ Which will render it like this on the page:
 
 The link ([I'll take you to the homepage!](javascript:loadMarkdownFromFile('markdown/index.md');)) when clicked will load the index page for the site.
 
+This works because `href` allows you to call javascript using `javascript:someFunction();`. There is a function I use to render the new pages, `loadMarkdownFromFile`. If you don't want to rended the information of a page, for pages that are outside of the `markdown` folder, then you can use:
+
+```javascript
+loadMarkdownFromFile('someurl/somefile', false);
+```
+
 ### Documentation
 
 There may be times when you want some documentation on your markdown file. The `create_structure.py` function has the ability to understand a very simple form of documenting a file to include additional information. See the about me page as an example:

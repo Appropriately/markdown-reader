@@ -24,7 +24,7 @@ nav {
 }
 
 .sidebar-card-content {
-  margin-top: 10px;
+  margin: 10px 0;
 }
 
 .sidebar-card-title:hover {
@@ -50,9 +50,7 @@ nav {
 }
 
 #navigator .layer {
-  border-left: 2px solid #444444;
-  padding: 10px 10px;
-  padding-left: 15px;
+  border-left: 1px solid #444444;
 }
 
 #navigator .document {
@@ -60,15 +58,13 @@ nav {
   text-decoration: none;
   background-color: transparent;
   display: block;
-  padding: 5px 0;
+  padding: 5px 10px;
 }
 
 #navigator .folder {
   color: #222222;
   display: block;
-  padding: 5px 0;
-  border-top: 1px solid #444444;
-  border-bottom: 1px solid #444444;
+  padding: 5px 10px;
 }
 
 #navigator .document:hover {

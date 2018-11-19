@@ -1,5 +1,12 @@
 var HTML_DIV_LAYER = '<div class="layer mx-2"></div>';
 var ROOT_FOLDER = 'markdown';
+var MAX_LOG = 20;
+
+
+// Keep track of previously visited pages
+var pageLog = [];
+// Keeps track of the full_path of the current page
+var currentPage = '';
 
 
 // Function that will handle the site being loaded
@@ -165,7 +172,7 @@ function buildInformationPanel(filePath) {
           information.append(info('file-signature', 'Author',
             result['author']));
         if (result.hasOwnProperty('size'))
-          information.append(info('weight', 'Size',
+          information.append(info('weight', 'File size',
             humanFileSize(result['size'])));
         if (result.hasOwnProperty('description'))
           information.append(info('pen', 'Description',
@@ -200,9 +207,27 @@ function setOptions() {
 } // setOptions
 
 
+// Handles returning to a previous page, and returning to the index if there is
+// no previous page
+function back() {
+  if (pageLog.length === 0) renderIndex();
+  else {
+    // Pop one from stack
+    previousPath = pageLog.pop();
+    if (previousPath === 'README.md') renderReadme();
+    else loadMarkdownFromFile(previousPath);
+  } // else
+} // back
+
+
 function renderIndex() {
   loadMarkdownFromFile(ROOT_FOLDER + '/index.md');
-}
+} // renderIndex
+
+
+function renderReadme() {
+  loadMarkdownFromFile('README.md', false);
+} // renderReadme
 
 
 function handleBadLink(link) {
@@ -212,37 +237,46 @@ function handleBadLink(link) {
 
 
 // Given a files location, load that file and update the html
-function loadMarkdownFromFile(file, checkInformation = true) {
+function loadMarkdownFromFile(currentFilePath, checkInformation = true) {
   setOptions();
   var converter = new showdown.Converter();
 
-  // Check file has been specified
-  if (file === '') {
+  // Check currentFilePath has been specified
+  if (currentFilePath === '') {
     alert("No file specified");
   } // if
 
+  // Handle tracking navigated pages
+  if (currentPage !== '') pageLog.push(currentPage);
+
+  // Reduce log size
+  if (pageLog.length > MAX_LOG) pageLog.shift();
+
+  currentPage = currentFilePath;
+  alert(pageLog);
+
   $.ajax({
-    url: file,
+    url: currentFilePath,
     type: 'get',
     dataType: 'html',
     async: true,
     success: function(data) {
       // Ensure that there is actually data there
-      if (data === null) handleBadLink(file);
+      if (data === null) handleBadLink(currentFilePath);
 
       // Get the name of the file
-      var name = file.split('/').pop();
+      var name = currentFilePath.split('/').pop();
       $(document).attr("title", "Markdown Reader - " + name);
 
       // Build the information pannel
-      if (checkInformation === true) buildInformationPanel(file);
+      if (checkInformation === true) buildInformationPanel(currentFilePath);
       else $('#information-panel').hide();
 
       $("#markdown").html(converter.makeHtml(data));
     },
     error: function() {
       // Handle if there is an issue with the requested page
-      handleBadLink(file);
+      handleBadLink(currentFilePath);
     }
   });
 } // test()
