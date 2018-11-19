@@ -44,8 +44,9 @@ nav {
 }
 
 #navigator .layer {
-  border-left: 3px solid black;
+  border-left: 2px solid #444444;
   padding: 10px 10px;
+  padding-left: 15px;
 }
 
 #navigator .document {
@@ -57,11 +58,11 @@ nav {
 }
 
 #navigator .folder {
-  color: black;
+  color: #222222;
   display: block;
   padding: 5px 0;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid #444444;
+  border-bottom: 1px solid #444444;
 }
 
 #navigator .document:hover {

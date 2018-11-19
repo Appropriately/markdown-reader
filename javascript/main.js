@@ -24,7 +24,7 @@ function appendFolder(json, parent) {
   root = parent.append(HTML_DIV_LAYER).children("div:last-child");
 
   // Add the folder name and icon
-  root.append("<span class='folder lead'><i class='fas fa-folder'></i> " +
+  root.append("<span class='folder'><i class='fas fa-folder'></i> " +
     json['directory'] + "</span>");
 
   // Handle adding all the files
