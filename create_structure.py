@@ -5,31 +5,42 @@
 import os
 import json
 
+DOCUMENTATION_COMMENT_MARKER = "<!---DOC:"
 
-# Given some information on a file, output the information as a json object
-def output_file_json(file, root):
-    full_path = os.sep.join([root, file])
-
+# Handles the documentation in a markdown file
+# Documentation format:
+#   TITLE;DESCRIPTION;AUTHOR
+def handle_markdown_documentation(file_path, json_object):
     # See if the first line has information on the file
-    doc_line = None;
-    with open(full_path) as f:
-        doc_line = f.readline()
-
-    # Construct the object
-    object = {
-        "file": file,
-        "full_path": full_path,
-        "size": int(os.stat(full_path)[6])
-    }
+    documentation_line = None;
+    with open(file_path) as f:
+        documentation_line = f.readline()
 
     # Handle adding the doc_line params
-    if doc_line[:9] == "<!---DOC:":
-        documentation = doc_line[9:][:-4].split(';')
-        object['file'] = documentation[0]
-        object['description'] = documentation[1]
-        object['author'] = documentation[2]
+    if documentation_line[:9] == DOCUMENTATION_COMMENT_MARKER:
+        # Remove the comment marks <!---DOC: & -->
+        documentation = documentation_line[9:][:-4].split(';')
+        json_object['file'] = documentation[0]
+        json_object['description'] = documentation[1]
+        json_object['author'] = documentation[2]
 
-    return object
+    return json_object
+
+
+# Given some information on a file, output the information as a json object
+def output_file_json(file_name, root):
+    full_path = os.sep.join([root, file_name])
+
+    # Construct the object
+    json_object = {
+        "file": file_name,
+        "full_path": full_path,
+        "size": os.stat(full_path)[6]
+    }
+
+    json_object = handle_markdown_documentation(full_path, json_object)
+
+    return json_object
 
 
 # File walking structure based on code from here:
@@ -49,13 +60,13 @@ def directory_to_json(current_directory):
         sub_directories.append(directory_to_json(next_directory))
 
     json_object = {
-        "directory": current.split('/')[-1].capitalize()
+        "directory": current.split('/')[-1].capitalize() # Capitalise first char
     }
 
-    if directories != []:
+    # Check if directories and files exists, if so add them to the object
+    if directories:
         json_object['directories'] = sub_directories
-
-    if files != []:
+    if files:
         json_object['files'] = files_in_directory
 
     return json_object
