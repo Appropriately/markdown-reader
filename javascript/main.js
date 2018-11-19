@@ -105,8 +105,8 @@ function findFullPathInJSON(jsonObject, filePathStructure, originalPath) {
         var foundDirectoryValue = directory['directory'].toLowerCase();
         if (foundDirectoryValue === currentValue.toLowerCase())
           returnedFile =
-            findFullPathInJSON(directory, filePathStructure, originalPath);
-          return false; // Leave $.each
+          findFullPathInJSON(directory, filePathStructure, originalPath);
+        return false; // Leave $.each
       });
 
       return returnedFile;
@@ -141,8 +141,7 @@ function buildInformationPanel(filePath) {
   // Converts bytes to a more human readable filesize.
   function humanFileSize(size) {
     var i = Math.floor(Math.log(size) / Math.log(1024));
-    return (size / Math.pow(1024, i)).toFixed(2) * 1 + ' '
-      + ['B', 'kB', 'MB', 'GB', 'TB'][i];
+    return (size / Math.pow(1024, i)).toFixed(2) * 1 + ' ' + ['B', 'kB', 'MB', 'GB', 'TB'][i];
   }; // humanFileSize
 
   // Retrieve file
@@ -213,7 +212,7 @@ function handleBadLink(link) {
 
 
 // Given a files location, load that file and update the html
-function loadMarkdownFromFile(file) {
+function loadMarkdownFromFile(file, checkInformation = true) {
   setOptions();
   var converter = new showdown.Converter();
 
@@ -236,7 +235,8 @@ function loadMarkdownFromFile(file) {
       $(document).attr("title", "Markdown Reader - " + name);
 
       // Build the information pannel
-      buildInformationPanel(file);
+      if (checkInformation === true) buildInformationPanel(file);
+      else $('#information-panel').hide();
 
       $("#markdown").html(converter.makeHtml(data));
     },
