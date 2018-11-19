@@ -253,7 +253,6 @@ function loadMarkdownFromFile(currentFilePath, checkInformation = true) {
   if (pageLog.length > MAX_LOG) pageLog.shift();
 
   currentPage = currentFilePath;
-  alert(pageLog);
 
   $.ajax({
     url: currentFilePath,
