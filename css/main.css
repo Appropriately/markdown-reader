@@ -31,6 +31,12 @@ nav {
   color: #444444;
 }
 
+#information .section {
+  padding: 5px;
+  display: block;
+  color: #444444;
+}
+
 #main{
   min-height: 100vh;
 }
@@ -79,6 +85,19 @@ nav {
  word-wrap: break-word;
  word-break: break-word;
  hyphens: auto;
+}
+
+#markdown table {
+  background: #fff;
+  border: solid 1px #ddd;
+  margin-bottom: 1.25rem;
+  table-layout: auto;
+}
+
+table tr th, table tr td {
+  color: #222;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.625rem 0.625rem
 }
 
 #markdown pre {

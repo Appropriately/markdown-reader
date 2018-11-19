@@ -27,6 +27,20 @@
           "file": "Secarma Pentesting notes", 
           "size": 5049
         }
+      ], 
+      "directories": [
+        {
+          "directory": "Symantec", 
+          "files": [
+            {
+              "description": "Notes on Symantec VIP", 
+              "author": "Sean Lewis", 
+              "full_path": "markdown/notes/symantec/vip.md", 
+              "file": "Symantec VIP", 
+              "size": 2300
+            }
+          ]
+        }
       ]
     }
   ]

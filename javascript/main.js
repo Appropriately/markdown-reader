@@ -1,4 +1,6 @@
 var HTML_DIV_LAYER = '<div class="layer mx-2"></div>';
+var ROOT_FOLDER = 'markdown';
+
 
 // Function that will handle the site being loaded
 function onPageLoad() {
@@ -19,6 +21,7 @@ function onPageLoad() {
   } // if
 } // onPageLoad
 
+
 function appendFolder(json, parent) {
   // Append layer
   root = parent.append(HTML_DIV_LAYER).children("div:last-child");
@@ -37,16 +40,17 @@ function appendFolder(json, parent) {
   });
 
   // Handle adding more directories
-  if ( json.hasOwnProperty('directories') ) {
+  if (json.hasOwnProperty('directories')) {
     // Recurisvely call for each one!
     $.each(json['directories'], function(index, value) {
       root.append("<div style='height:15px;'></div>")
-      if ( json.hasOwnProperty('files') ) appendFolder(value, root);
+      if (json.hasOwnProperty('files')) appendFolder(value, root);
     });
   } // if
-
 } // appendFolder
 
+
+// Build the navigation menu, by making recursive calls
 function buildNavigation() {
   // Retrieve file
   $.ajax({
@@ -67,10 +71,122 @@ function buildNavigation() {
   });
 } // buildNavigation
 
+
+// TODO: Description of function
+function findFullPathInJSON(jsonObject, filePathStructure, originalPath) {
+  currentValue = filePathStructure.shift();
+
+  if (currentValue.endsWith('.md')) {
+    if (jsonObject.hasOwnProperty('files')) {
+      returnedFile = null;
+
+      $.each(jsonObject['files'], function(index, file) {
+        // Check if any of the file is the right one
+        var hasProperty = file.hasOwnProperty('full_path');
+        if (hasProperty && file['full_path'] === originalPath) {
+          returnedFile = file;
+          return false; // Leave $.each
+        } // if
+      });
+
+      return returnedFile;
+    } // if files in folder
+
+    return null;
+  } else {
+    if (currentValue === ROOT_FOLDER) {
+      return findFullPathInJSON(jsonObject, filePathStructure, originalPath);
+    } // Checking if it is the root
+
+    if (jsonObject.hasOwnProperty('directories')) {
+      returnedFile = null;
+
+      $.each(jsonObject['directories'], function(index, directory) {
+        var foundDirectoryValue = directory['directory'].toLowerCase();
+        if (foundDirectoryValue === currentValue.toLowerCase())
+          returnedFile =
+            findFullPathInJSON(directory, filePathStructure, originalPath);
+          return false; // Leave $.each
+      });
+
+      return returnedFile;
+    } // if it has directories
+
+    return null;
+  } // if
+} // findFullPathInJSON
+
+
+// TODO: Description of function
+function buildInformationPanel(filePath) {
+  var informationPanel = $("#information-panel");
+  var information = $("#information");
+
+  filePathStructure = filePath.split('/');
+
+  function handleError() {
+    errorMessage = 'There was a problem getting ' + filePathStructure.pop() +
+      "'s information."
+    appendAlert('warning', errorMessage);
+    informationPanel.hide();
+  } // handleError
+
+  // Function which returns a nice string for use with the information panel
+  function info(icon, title, data) {
+    return "<span class='section'><i class='fas fa-" + icon + "'></i> " + title +
+      ": " + data + "</span>";
+  } // info
+
+  // Taken from https://stackoverflow.com/a/20732091
+  // Converts bytes to a more human readable filesize.
+  function humanFileSize(size) {
+    var i = Math.floor(Math.log(size) / Math.log(1024));
+    return (size / Math.pow(1024, i)).toFixed(2) * 1 + ' '
+      + ['B', 'kB', 'MB', 'GB', 'TB'][i];
+  }; // humanFileSize
+
+  // Retrieve file
+  $.ajax({
+    url: 'data.json',
+    type: 'get',
+    dataType: 'json',
+    async: true,
+    success: function(json) {
+      var result = findFullPathInJSON(json, filePathStructure, filePath);
+      if (result === null) handleError();
+      else {
+        information.empty();
+
+        // Guaranteed information
+        information.append(info('info-circle', 'Name', result['file']));
+        information.append(info('folder', 'Path', result['full_path']));
+
+        // Optional information
+        if (result.hasOwnProperty('author'))
+          information.append(info('file-signature', 'Author',
+            result['author']));
+        if (result.hasOwnProperty('size'))
+          information.append(info('weight', 'Size',
+            humanFileSize(result['size'])));
+        if (result.hasOwnProperty('description'))
+          information.append(info('pen', 'Description',
+            result['description']));
+
+        // Show the finished panel
+        informationPanel.show();
+      } // else
+    },
+    error: function() {
+      handleError();
+    }
+  });
+} // buildInformation
+
+
 // Appends an alert to the page when called.
 // Some common alertTypes include success, danger, warning & info
 function appendAlert(alertType, message) {
-  $( "#alerts" ).append(
+  $("#alerts").append(
     "<div class='alert alert-" + alertType +
     " alert-dismissible fade show' role='alert'>" + message +
     "<button type='button' class='close' data-dismiss='alert' " +
@@ -78,19 +194,23 @@ function appendAlert(alertType, message) {
   );
 } // appendAlert
 
+
 // Set the options for the showdown markdown convertor
 function setOptions() {
   showdown.setFlavor('github');
 } // setOptions
 
+
 function renderIndex() {
-  loadMarkdownFromFile('markdown/index.md');
+  loadMarkdownFromFile(ROOT_FOLDER + '/index.md');
 }
+
 
 function handleBadLink(link) {
   appendAlert("danger", "The link " + link + " doesn't exist!");
   renderIndex(); // Default to the index page.
 } // handleBadLink
+
 
 // Given a files location, load that file and update the html
 function loadMarkdownFromFile(file) {
@@ -98,7 +218,7 @@ function loadMarkdownFromFile(file) {
   var converter = new showdown.Converter();
 
   // Check file has been specified
-  if(file === '') {
+  if (file === '') {
     alert("No file specified");
   } // if
 
@@ -109,11 +229,14 @@ function loadMarkdownFromFile(file) {
     async: true,
     success: function(data) {
       // Ensure that there is actually data there
-      if(data === null) handleBadLink(file);
+      if (data === null) handleBadLink(file);
 
       // Get the name of the file
       var name = file.split('/').pop();
       $(document).attr("title", "Markdown Reader - " + name);
+
+      // Build the information pannel
+      buildInformationPanel(file);
 
       $("#markdown").html(converter.makeHtml(data));
     },
