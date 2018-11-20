@@ -1,12 +1,6 @@
 var HTML_DIV_LAYER = '<div class="layer mx-2"></div>';
 var ROOT_FOLDER = 'markdown';
-var MAX_LOG = 20;
-
-
-// Keep track of previously visited pages
-var pageLog = [];
-// Keeps track of the full_path of the current page
-var currentPage = '';
+var HUMAN_SIZES = ['B', 'kB', 'MB', 'GB', 'TB'];
 
 
 // Function that will handle the site being loaded
@@ -79,7 +73,8 @@ function buildNavigation() {
 } // buildNavigation
 
 
-// TODO: Description of function
+// When given some path and a jsonObject, return the json associated with that
+// path. Will be used to search for information about a file.
 function findFullPathInJSON(jsonObject, filePathStructure, originalPath) {
   currentValue = filePathStructure.shift();
 
@@ -124,7 +119,9 @@ function findFullPathInJSON(jsonObject, filePathStructure, originalPath) {
 } // findFullPathInJSON
 
 
-// TODO: Description of function
+// Given a file path, build out the information panel. It will need to take
+// a full file path, search for the associated json object and retrieve the
+// information from it.
 function buildInformationPanel(filePath) {
   var informationPanel = $("#information-panel");
   var information = $("#information");
@@ -148,7 +145,7 @@ function buildInformationPanel(filePath) {
   // Converts bytes to a more human readable filesize.
   function humanFileSize(size) {
     var i = Math.floor(Math.log(size) / Math.log(1024));
-    return (size / Math.pow(1024, i)).toFixed(2) * 1 + ' ' + ['B', 'kB', 'MB', 'GB', 'TB'][i];
+    return (size / Math.pow(1024, i)).toFixed(2) * 1 + ' ' + HUMAN_SIZES[i];
   }; // humanFileSize
 
   // Retrieve file
@@ -207,19 +204,6 @@ function setOptions() {
 } // setOptions
 
 
-// Handles returning to a previous page, and returning to the index if there is
-// no previous page
-function back() {
-  if (pageLog.length === 0) renderIndex();
-  else {
-    // Pop one from stack
-    previousPath = pageLog.pop();
-    if (previousPath === 'README.md') renderReadme();
-    else loadMarkdownFromFile(previousPath);
-  } // else
-} // back
-
-
 function renderIndex() {
   loadMarkdownFromFile(ROOT_FOLDER + '/index.md');
 } // renderIndex
@@ -246,14 +230,6 @@ function loadMarkdownFromFile(currentFilePath, checkInformation = true) {
     alert("No file specified");
   } // if
 
-  // Handle tracking navigated pages
-  if (currentPage !== '') pageLog.push(currentPage);
-
-  // Reduce log size
-  if (pageLog.length > MAX_LOG) pageLog.shift();
-
-  currentPage = currentFilePath;
-
   $.ajax({
     url: currentFilePath,
     type: 'get',
@@ -265,7 +241,11 @@ function loadMarkdownFromFile(currentFilePath, checkInformation = true) {
 
       // Get the name of the file
       var name = currentFilePath.split('/').pop();
-      $(document).attr("title", "Markdown Reader - " + name);
+
+      // Setup the page to change
+      var newTitle = "Markdown Reader - " + name;
+      $(document).attr("title", newTitle);
+      window.history.pushState(name, newTitle, '/?page=' + currentFilePath);
 
       // Build the information pannel
       if (checkInformation === true) buildInformationPanel(currentFilePath);
@@ -278,4 +258,4 @@ function loadMarkdownFromFile(currentFilePath, checkInformation = true) {
       handleBadLink(currentFilePath);
     }
   });
-} // test()
+} // loadMarkdownFromFile
