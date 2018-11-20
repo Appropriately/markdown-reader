@@ -204,16 +204,6 @@ function setOptions() {
 } // setOptions
 
 
-function renderIndex() {
-  loadMarkdownFromFile(ROOT_FOLDER + '/index.md');
-} // renderIndex
-
-
-function renderReadme() {
-  loadMarkdownFromFile('README.md', false);
-} // renderReadme
-
-
 function handleBadLink(link) {
   appendAlert("danger", "The link " + link + " doesn't exist!");
   renderIndex(); // Default to the index page.
@@ -244,8 +234,9 @@ function loadMarkdownFromFile(currentFilePath, checkInformation = true) {
 
       // Setup the page to change
       var newTitle = "Markdown Reader - " + name;
+      var newPage = window.location.pathname + '/?page=' + currentFilePath;
       $(document).attr("title", newTitle);
-      window.history.pushState(name, newTitle, '/?page=' + currentFilePath);
+      window.history.pushState(name, newTitle, newPage);
 
       // Build the information pannel
       if (checkInformation === true) buildInformationPanel(currentFilePath);

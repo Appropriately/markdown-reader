@@ -1,3 +1,16 @@
+:root {
+  --main-bg-colour: white;
+  --additional-bg-colour: lightgray;
+  --navbar-bg-colour: linear-gradient(124deg, rgba(52,58,64,1) 0%, rgba(82,82,82,1) 100%);
+  --main-text-colour: black;
+  --accent-colour: #444444;
+}
+
+body {
+  background-color: var(--main-bg-colour, white);
+  color: var(--main-text-colour, black);
+}
+
 img {
   width: 100%;
   height: auto;
@@ -6,21 +19,14 @@ img {
 nav {
   z-index: 5;
   box-shadow: 0 0 2px 1px black;
-  background: linear-gradient(124deg, rgba(52,58,64,1) 0%, rgba(82,82,82,1) 100%);
-}
-
-@media (min-width: 992px) {
-  .sidebar-card {
-    max-width: 350px;
-    margin: 20px auto !important;
-  }
+  background: var(--navbar-bg-colour, linear-gradient(124deg, rgba(52,58,64,1) 0%, rgba(82,82,82,1) 100%));
 }
 
 .sidebar-card {
+  width: 100%;
   padding: 10px;
-  background-color: white;
-  box-shadow: 2px 2px 2px darkgray;
-  margin: 20px 10px;
+  background-color: var(--main-bg-colour, white);
+  margin: 20px 0;
 }
 
 .sidebar-card-content {
@@ -28,13 +34,13 @@ nav {
 }
 
 .sidebar-card-title:hover {
-  color: #444444;
+  color: var(--accent-colour, #444444);
 }
 
 #information .section {
   padding: 5px;
   display: block;
-  color: #444444;
+  color: var(--accent-colour, #444444);
 }
 
 #main{
@@ -44,17 +50,16 @@ nav {
 #navigator {
   z-index: 3;
   width: 100%;
-  background: lightgray;
-  box-shadow: 0 0 2px 1px darkgray;
+  background: var(--additional-bg-colour, lightgray);
   padding:0;
 }
 
 #navigator .layer {
-  border-left: 1px solid #444444;
+  border-left: 1px solid var(--accent-colour, #444444);
 }
 
 #navigator .document {
-  color: black;
+  color: var(--main-text-colour, black);
   text-decoration: none;
   background-color: transparent;
   display: block;
@@ -62,13 +67,13 @@ nav {
 }
 
 #navigator .folder {
-  color: #222222;
+  color: var(--main-text-colour: black);
   display: block;
   padding: 5px 10px;
 }
 
 #navigator .document:hover {
-  color: #444444;
+  color: var(--accent-colour, #444444);
 }
 
 #markdown-wrapper {
