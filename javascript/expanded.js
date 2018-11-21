@@ -1,4 +1,5 @@
-// Javascript here will just be really simple expansions of the main.js
+// Javascript here will just be really simple expansions of the main.js, which
+// would look kind of out of place there
 
 // Toggles the left menu
 function toggleMenu() {

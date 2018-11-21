@@ -234,7 +234,7 @@ function loadMarkdownFromFile(currentFilePath, checkInformation = true) {
 
       // Setup the page to change
       var newTitle = "Markdown Reader - " + name;
-      var newPage = window.location.pathname + '/?page=' + currentFilePath;
+      var newPage = window.location.pathname + '?page=' + currentFilePath;
       $(document).attr("title", newTitle);
       window.history.pushState(name, newTitle, newPage);
 

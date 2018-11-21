@@ -4,6 +4,8 @@
   --navbar-bg-colour: linear-gradient(124deg, rgba(52,58,64,1) 0%, rgba(82,82,82,1) 100%);
   --main-text-colour: black;
   --accent-colour: #444444;
+  --code-bg-colour: #f8f8f8;
+  --code-border-colour: #dfdfdf;
 }
 
 body {
@@ -23,14 +25,18 @@ nav {
 }
 
 .sidebar-card {
+  border-top: 1px solid var(--accent-colour, #444444);
   width: 100%;
   padding: 10px;
-  background-color: var(--main-bg-colour, white);
-  margin: 20px 0;
 }
 
 .sidebar-card-content {
   margin: 10px 0;
+}
+
+.sidebar-card-title {
+  margin:10px;
+  text-align: justify;
 }
 
 .sidebar-card-title:hover {
@@ -52,6 +58,9 @@ nav {
   width: 100%;
   background: var(--additional-bg-colour, lightgray);
   padding:0;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 #navigator .layer {
@@ -89,14 +98,15 @@ nav {
 }
 
 #markdown table {
-  background: #fff;
-  border: solid 1px #ddd;
+  background-color: var(--code-bg-colour, #f8f8f8);
+  border: 1px solid var(--code-border-colour, #dfdfdf);
+  color: var(--main-text-colour, black);
   margin-bottom: 1.25rem;
   table-layout: auto;
 }
 
 table tr th, table tr td {
-  color: #222;
+  color: var(--accent-colour, #444444);
   font-size: 0.875rem;
   padding: 0.5rem 0.625rem 0.625rem
 }
@@ -107,8 +117,9 @@ table tr th, table tr td {
   white-space: -pre-wrap;      /* Opera 4-6 */
   white-space: -o-pre-wrap;    /* Opera 7 */
   word-wrap: break-word;       /* Internet Explorer 5.5+ */
-  background-color: #f8f8f8;
-  border: 1px solid #dfdfdf;
+  background-color: var(--code-bg-colour, #f8f8f8);
+  border: 1px solid var(--code-border-colour, #dfdfdf);
+  color: var(--main-text-colour, black);
   margin-top: 1.5em;
   margin-bottom: 1.5em;
   padding: 0.3125rem;
