@@ -2,13 +2,6 @@
   "directory": "Markdown", 
   "files": [
     {
-      "description": "A bunch of experiments for testing the capabilities of showdown", 
-      "author": "Sean Lewis", 
-      "full_path": "markdown/testpage.md", 
-      "file": "Test page", 
-      "size": 4409
-    }, 
-    {
       "description": "The index page", 
       "author": "Sean Lewis", 
       "full_path": "markdown/index.md", 
@@ -21,6 +14,13 @@
       "full_path": "markdown/aboutme.md", 
       "file": "About me", 
       "size": 59
+    }, 
+    {
+      "description": "A bunch of experiments for testing the capabilities of showdown", 
+      "author": "Sean Lewis", 
+      "full_path": "markdown/testpage.md", 
+      "file": "Test page", 
+      "size": 4409
     }
   ], 
   "directories": [

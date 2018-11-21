@@ -1,3 +1,3 @@
 # For use when developing
-./create_structure.py
+python2 create_structure.py
 php -S localhost:8000
