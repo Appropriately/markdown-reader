@@ -1,5 +1,5 @@
 :root {
-  --main-bg-colour: white;
+  --main-bg-colour:white;
   --additional-bg-colour: lightgray;
   --navbar-bg-colour: linear-gradient(124deg, rgba(52,58,64,1) 0%, rgba(82,82,82,1) 100%);
   --main-text-colour: black;
@@ -23,6 +23,34 @@ nav {
   z-index: 5;
   box-shadow: 0 0 2px 1px black;
   background: var(--navbar-bg-colour, linear-gradient(124deg, rgba(52,58,64,1) 0%, rgba(82,82,82,1) 100%));
+}
+
+.modal-content {
+  background-color: var(--main-bg-colour, white);
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--accent-colour, #444444);
+}
+
+.modal-header button {
+  color: var(--main-text-colour, black);
+}
+
+.modal-button {
+  padding: 0.8rem;
+  display: block;
+  margin: 0;
+}
+
+.modal-button i {
+  margin-right: 1.5rem;
+}
+
+.modal-button:hover {
+  background-color: var(--highlight-colour, #999999);
+  color: var(--main-text-colour, black);
+  text-decoration: none;
 }
 
 .sidebar-card {
