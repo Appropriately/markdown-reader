@@ -5,7 +5,7 @@
 
 #### Overview
 
-The Symantec Validation and ID Protection (VIP) Service is a multifactor authentication (MFA) product that uses biometrics and smartphones to supplement standard username/password logins on a variety of servers and services. It is a cloud-based service for preventing unauthorised access to sensetive networks and cloud based services.
+The Symantec Validation and ID Protection (VIP) Service is a multi-factor authentication (MFA) product that uses biometrics and smartphones to supplement standard username/password logins on a variety of servers and services. It is a cloud-based service for preventing unauthorized access to sensitive networks and cloud based services.
 
 #### Symantec VIP Service
 
@@ -49,13 +49,13 @@ The Symantec Validation and ID Protection (VIP) Service is a multifactor authent
 
 #### Example Scenario
 
-Here is an example company and their goals.
+Here is an example company and their goaADFSls.
 
 | GOAL | SOLUTION |
 | :--- | :--- |
 | Reduce costs associated with account proliferation and forgotten passwords | **VIP Access Manager** SSO |
-| Secure remote access with multifactor authentication | **VIP Services** OTP with RADIUS |
-| Enable strong authentication in the commerical (consumer) applocation | **VIP Services** Risk-based authentication |
+| Secure remote access with multi-factor authentication | **VIP Services** OTP with RADIUS |
+| Enable strong authentication in the commercial (consumer) application | **VIP Services** Risk-based authentication |
 
 
 ## Introduction to Symantec VIP Access Manager
@@ -66,13 +66,13 @@ Here is an example company and their goals.
     - By using SSO; improving user experience and reducing down to only one password that needs remembering.
     - Ensure that there is a strong password policy in place.
     - Implementing two factor authentication.
-* SAML: Open standard for exchanging authentication and authorisation data between security domains.
+* SAML: Open standard for exchanging authentication and authoADFSrisation data between security domains.
   - A service provider (e.g. Google Apps, Salesforce, etc.) is configured to trust an IDP to authenticate users.
   - Uses public key encryption to establish a trust relationship.
 
 ![SAML Diagram](./images/symantec/saml_diagram.png)
 
-* WS-Trust: Specification that uses secure message mechanisms of WS-Security to facilitate trust relationships in diverse Web service environments.
+* WS-Trust: Specification that uses secuADFSre message mechanisms of WS-Security to facilitate trust relationships in diverse Web service environments.
   - Intended for the exchange of user identity information in `Microsoft .NET 3.0`
   - WS-Trust defines a request/response process for exchange of security tokens in Kerberos, X.509 and SAML.
 * WS-Trust is considered less complex and light weight, whereas SAML is more complex but considered more secure.
@@ -119,9 +119,9 @@ The **Application Catalog** has out-of-box connectors for applications and gener
 
 #### Architecture of VIP Access Manager
 
-The _VIP Access Manager Gateway Appliance_ is a virtual appliace, which hosts the Single Sign-on portal and Administration console. First installed Gatway operates as configuration master. Additional gateways will be read-only. This means that, if the primary gateway goes down then configuration cannot be changed until it is back online or a new primary gateway is chosen. Used in Symantec-hosted or on-premises customer deployments.
+The _VIP Access Manager Gateway Appliance_ is a virtual appliance, which hosts the Single Sign-on portal and Administration console. First installed Gatway operates as configuration master. Additional gateways will be read-only. This means that, if the primary gateway goes down then configuration cannot be changed until it is back online or a new primary gateway is chosen. Used in Symantec-hosted or on-premises customer deployments.
 
-The _VIP Access Manager Bridge Appliance_ is a virtual appliance which bridges externally hosted gateways to internally hosted Identity Service stores. It uses outbound HTTPS connections. It will be requiried if you are using IdP outside of the gateway network. It is optionally used for on-premises customer deployments.
+The _VIP Access Manager Bridge Appliance_ is a virtual appliance which bridges externally hosted gateways to internally hosted Identity Service stores. It uses outbound HTTPS connections. It will be required if you are using IdP outside of the gateway network. It is optionally used for on-premises customer deployments.
 
 ##### Hosted Deployment
 
@@ -155,6 +155,145 @@ An extended guide can be found [here](https://help.symantec.com/home/VIP_EG_INST
 
 * __IAS__: Identity and Authentication Services
 * __SAML__: Security Assertion Markup Language
-* __IdP__: IDentity Provider
+* __IdP__: Identity Provider
 * __WS-Trust__: Web Services Trust
 * __NTP__: Network Time Protocol
+* __PKI__: Public Key Infrastructure is a set of roles, policies, and procedures needed to create, manage, distribute, use, store, and revoke digital certificates and manage public-key encryption.
+
+## Enhance Security and Improve User Experience Through Single Sign-on
+
+##### What is SSO about?
+
+* SSO is about improving the end user experience
+  - Security is just a side benefit.
+* Federating directories
+  - Users want immediate gratification.
+  - Fewer user identites and easy access across resources.
+* Multi-factor authentication
+  - User perceive this as complicated.
+  - Ease-of-use will increase user adoption.
+
+##### VIP Access Manager
+
+* VIP Access Manager supports a variety of identity sources for single sign-on.
+* 2nd factor authentication is supported.
+* A variety of application connectors are available out-of-box.
+  - There are a collection of connectors available at the application catalogue.
+  - New connectors can be created, imported and exported.
+* Users access applications from the SSO partal based on rules.
+
+#### Authenticating Users
+
+| Authentication & Authorisation | Identity Services |
+| :--- | :--- |
+| > Authentication - Positively establishes a user's identity. | > Authenticates users using LDAP, Database, Client Certificates, Remote SAML Identity Provider or Local User Store |
+| > Authorisation - Policy-based access determined by identity, device and location.   | > Federates across multiple identity services providing attribute normalisation for authorisation. |
+| | > Supplements authentication providing higher levels of assurance. |
+
+##### Types of identity services
+
+Primary Authentication
+
+* Delegated authentication to:
+  - Active Directory
+  - LDAP
+  - Database
+  - Local User Database
+  - Managed PKI
+  - SAML Identity Providers
+
+Secondary Authentication
+
+* Multi-Factor Authentication
+* Increased Level of Assurance
+* VIP One-time-password and RSA tokens
+
+Supplementary Authentication
+
+* Alternative source of identity attributes for policy decisions or SAML contracts
+* Query external AD, LDAP or Database service for identity information
+  - Example: HR Database
+
+## Control Access to Web Applications Based Upon Organizational Requirements
+
+THe business wants to:
+
+* Secure web application logon and minimise exposure of information to protect corporate secrets and reduce legal risk.
+
+IT and other groups want to:
+
+* Fulfill the business requirements
+* Deploy web applications across the users with minimal cost and resources involved.
+* Make it easy for end-users so that they will use the system.
+* Have a good auditing and logging system.
+
+Access control in our definition does not govern actions within the target application - it disables the password sign-in for the application. This helps by limiting the access to the right people to specific applications, ensuring secure authentication to an application to protect data, etc.
+
+
+#### Ways of creating application access policies
+
+Default user attributes:
+
+* Username
+* Email
+* Admin role
+
+Additional user attributes:
+
+* From an identity service
+* From supplementary sources
+* PKI or other authorisation providers
+* (**NOTE: Must be mapped to appear as a condition**)
+
+User context attributes:
+
+* Based on IP Address
+* Headers from the User-Agent
+* Current date
+* Geolocation
+
+#### VIP Access Manager Access Control Policies
+
+Access policies define rules based on user and device attributes, network location and level assurance. Each application is assigned one access policy. In Access Manager, the access policies are made up of three primary components; order, condition and action. Conditions are evaluated hierarchically per the order in the access policy. If the condition is evaluated as `true` the action is performed. If it returns `false`, the next condition will be evaluated. If there are no conditions left, a final action will be performed; this is typically to deny access. Condition logic works like normal "contains," "is equal to," etc. Actions include `Permitting` or `Denying access request` or `Permitting with LOA1-4`. Default Access Policies exist, with Admin and All Users.
+
+You can apply variable levels of access control based on known risk factors such as type of data accessible to the user. For example, based on the role you can step up the authentication requirement - if they are claiming to be high up in sales and want to access `Salesforce` then force them to use multi-factor authentication. This can be done based on location as well, if their IP address suggests they are outside the office or in a foreign country they can be forced to provide additional authentication.
+
+Some considerations for policies:
+
+* Too many rules can make for difficult diagnostic and auditing procedures.
+* Group matching for Active Directory and LDAP users is based on the distinguished name of the group; a simple substring match may not be precise enough.
+* Proxy-based load balancers, which are rare, can obscure device IP address invalidating rules based on network location.
+
+## Enable Multi-factor Authentication Based Upon Business Requirements
+
+##### Application access based on Identity (level of assurance) LOA 
+
+* Perform risk assessment to determine minimum required identity LOA for each application.
+* The LOA of an identity can be increased by requiring multi-factor authentication.
+* Step-up authentication is secondary authentication requesting a 2nd factor in order to increase identity LOA.
+* Multi-factor authentication (MFA) uses different authentication factor types:
+  - Something You Know
+  - Something You Have
+  - Something You Are
+
+##### Integrate MFA with Access Manager
+
+* Integrating strong authentication for higher levels of assurance (LOA).
+* Integrating MFA at a single control point to:
+  - Increase usability and convenience.
+  - Reduce IT burden by avoiding MFA integrations at each end application.
+  - Selectively require MFA (step-up authentication) based on policy rules.
+* MFA with VIP Login and/or PKI can eliminate the password, providing improved _security and convenience_.
+* Symantec VIP and Managed PKI integrate seamlessly with VIP Access Manager.
+* Third-party vendor integrations using open standards (SAML, RADIUS).
+
+##### PKI Certificate Practices and Policies
+
+__PKI certificate practices and policies must support Access Manager policies and LOA__
+
+* Identity Proofing
+  - Certificate vetting and approval must meet or exceed the identity LOA required by the Access Manager
+* Multi-factor Authentication Credential
+  - A certificate alone is only one factor (Something You Have).
+  - Require PIN (Something You Know) or Biometric (Something You Are) for MFA Certificate Credential.
+  - Stronger ID proofing and hardware token storage needed for highest LOA.
