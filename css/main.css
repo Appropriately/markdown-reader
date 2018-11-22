@@ -4,6 +4,7 @@
   --navbar-bg-colour: linear-gradient(124deg, rgba(52,58,64,1) 0%, rgba(82,82,82,1) 100%);
   --main-text-colour: black;
   --accent-colour: #444444;
+  --highlight-colour: #999999;
   --code-bg-colour: #f8f8f8;
   --code-border-colour: #dfdfdf;
 }
@@ -27,7 +28,6 @@ nav {
 .sidebar-card {
   border-top: 1px solid var(--accent-colour, #444444);
   width: 100%;
-  padding: 10px;
 }
 
 .sidebar-card-content {
@@ -35,10 +35,11 @@ nav {
 }
 
 .sidebar-card-title {
-  padding: 0.5rem;
+  padding: 0.8rem;
   display: block;
   font-size: 1rem;
   font-weight: 600;
+  margin: 0;
 }
 
 .sidebar-card-title i {
@@ -46,11 +47,13 @@ nav {
 }
 
 .sidebar-card-title:hover {
-  color: var(--accent-colour, #444444);
+  background-color: var(--highlight-colour, #999999);
+  color: var(--main-text-colour, black);
+  text-decoration: none;
 }
 
 #information .section {
-  padding: 5px;
+  padding: 0.5rem 0.75rem;
   display: block;
   color: var(--accent-colour, #444444);
 }

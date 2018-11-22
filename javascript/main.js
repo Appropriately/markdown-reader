@@ -1,6 +1,7 @@
 var HTML_DIV_LAYER = '<div class="layer mx-2"></div>';
 var ROOT_FOLDER = 'markdown';
 var HUMAN_SIZES = ['B', 'kB', 'MB', 'GB', 'TB'];
+var IGNORE_INFO = ['README.md']; // Files that don't have information
 
 
 // Function that will handle the site being loaded
@@ -211,7 +212,7 @@ function handleBadLink(link) {
 
 
 // Given a files location, load that file and update the html
-function loadMarkdownFromFile(currentFilePath, checkInformation = true) {
+function loadMarkdownFromFile(currentFilePath) {
   setOptions();
   var converter = new showdown.Converter();
 
@@ -238,9 +239,9 @@ function loadMarkdownFromFile(currentFilePath, checkInformation = true) {
       $(document).attr("title", newTitle);
       window.history.pushState(name, newTitle, newPage);
 
-      // Build the information pannel
-      if (checkInformation === true) buildInformationPanel(currentFilePath);
-      else $('#information-panel').hide();
+      // Build the information panel
+      if (IGNORE_INFO.includes(currentFilePath)) $('#information-panel').hide();
+      else buildInformationPanel(currentFilePath);
 
       $("#markdown").html(converter.makeHtml(data));
     },

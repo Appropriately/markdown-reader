@@ -3,13 +3,13 @@
 /* Define the themes here */
 // THEME_NAME = [--main-bg-colour, --additional-bg-colour, --navbar-bg-colour,
 //  --main-text-colour, --main-text-colour, --code-bg-colour,
-//  --code-border-colour]
+//  --code-border-colour, --highlight-colour]
 LIGHT_THEME = ['white', 'lightgray',
   'linear-gradient(124deg, rgba(52,58,64,1) 0%, rgba(82,82,82,1) 100%)',
-  'black', '#444444', '#f8f8f8', 'dfdfdf'];
+  'black', '#444444', '#f8f8f8', '#dfdfdf', '#999999'];
 DARK_THEME = ['#222222', '#333333',
   'linear-gradient(124deg, rgba(52,58,64,1) 0%, rgba(82,82,82,1) 100%)',
-  'white', 'lightgray', '#111111', 'black'];
+  'white', 'lightgray', '#111111', 'black', '#555555'];
 
 
 function setDarkTheme() {
@@ -31,4 +31,5 @@ function setTheme(theme) {
   document.documentElement.style.setProperty("--accent-colour", theme[4]);
   document.documentElement.style.setProperty("--code-bg-colour", theme[5]);
   document.documentElement.style.setProperty("--code-border-colour", theme[6]);
+  document.documentElement.style.setProperty("--highlight-colour", theme[7]);
 } // setTheme

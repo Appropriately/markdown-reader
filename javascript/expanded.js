@@ -13,5 +13,5 @@ function renderIndex() {
 
 
 function renderReadme() {
-  loadMarkdownFromFile('README.md', false);
+  loadMarkdownFromFile('README.md');
 } // renderReadme
