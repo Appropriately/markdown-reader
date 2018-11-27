@@ -29,7 +29,7 @@ function appendFolder(json, parent) {
   root = parent.append(HTML_DIV_LAYER).children("div:last-child");
 
   // Add the folder name and icon
-  root.append("<span class='folder'><i class='fas fa-folder'></i> " +
+  root.append("<span class='folder'><i class='fa-fw fas fa-folder'></i> " +
     json['directory'] + "</span>");
 
   // Handle adding all the files
@@ -138,7 +138,7 @@ function buildInformationPanel(filePath) {
 
   // Function which returns a nice string for use with the information panel
   function info(icon, title, data) {
-    return "<span class='section'><i class='fas fa-" + icon + "'></i> " + title +
+    return "<span class='section'><i class='fa-fw fas fa-" + icon + "'></i> " + title +
       ": " + data + "</span>";
   } // info
 
