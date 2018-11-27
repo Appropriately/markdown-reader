@@ -15,3 +15,9 @@ function renderIndex() {
 function renderReadme() {
   loadMarkdownFromFile('README.md');
 } // renderReadme
+
+
+// A shorthand function for loading markdown from a file
+function load(currentFilePath) {
+  loadMarkdownFromFile(currentFilePath);
+} //load

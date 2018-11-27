@@ -34,7 +34,7 @@ function appendFolder(json, parent) {
 
   // Handle adding all the files
   $.each(json['files'], function(index, value) {
-    to_append = "<a href='javascript:loadMarkdownFromFile(\"" +
+    to_append = "<a href='javascript:load(\"" +
       value['full_path'] + "\");' role='button' class='document'>" +
       value['file'] + "</a>";
 
