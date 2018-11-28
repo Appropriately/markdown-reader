@@ -28,11 +28,11 @@
       "directory": "Notes", 
       "files": [
         {
-          "description": "Notes that I took while at the pentesting course", 
+          "description": "Notes that I took while at the Secarma Hacker101 course", 
           "author": "Sean Lewis", 
           "full_path": "markdown/notes/pentestingnotes.md", 
           "file": "Secarma Pentesting notes", 
-          "size": 12378
+          "size": 12502
         }
       ], 
       "directories": [
