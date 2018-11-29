@@ -214,7 +214,7 @@ function handleBadLink(link) {
 // Given a files location, load that file and update the html
 function loadMarkdownFromFile(currentFilePath) {
   setOptions();
-  var converter = new showdown.Converter();
+  var converter = new showdown.Converter({ extensions: ['showdown-toc'] });
 
   // Check currentFilePath has been specified
   if (currentFilePath === '') {

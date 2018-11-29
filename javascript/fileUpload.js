@@ -22,7 +22,7 @@ function triggerUpload() {
 $(document).on('change', '#upload', function () {
     // Setup the convertor
     setOptions();
-    var converter = new showdown.Converter();
+    var converter = new showdown.Converter({ extensions: ['showdown-toc'] });
 
     // Get the file
     var file = $('#upload').prop('files')[0];

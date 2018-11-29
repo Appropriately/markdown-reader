@@ -8,6 +8,8 @@ A Javascript Markdown reader produced using:
 * [Font Awesome](https://fontawesome.com/)
 * [Showdown JS](https://github.com/showdownjs/showdown)
   - Used for converting the markdown to html
+* [showdown-toc](https://github.com/ravisorg/showdown-toc)
+  - Expands Showdown JS, giving it the ability to generate a table of contents for the file.
 
 ## Usage
 

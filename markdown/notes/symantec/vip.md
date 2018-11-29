@@ -1,6 +1,10 @@
 <!---DOC:Symantec VIP;Notes on Symantec VIP;Sean Lewis-->
 # Symantec Validation and ID Protection (VIP)
 
+## Table of Contents
+
+[toc]
+
 ## About
 
 #### Overview
