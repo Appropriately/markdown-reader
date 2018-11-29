@@ -28,9 +28,11 @@ function toggleDarkMode() {
     // Currently set to the dark theme
     setTheme(LIGHT_THEME);
     darkModeToggler.addClass("fa-square");
+    localStorage.setItem("THEME", 'LIGHT');
   } else {
     setTheme(DARK_THEME);
     darkModeToggler.addClass("fa-check-square");
+    localStorage.setItem("THEME", 'DARK');
   } // if
 } // toggleDarkMode
 

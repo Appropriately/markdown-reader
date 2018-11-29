@@ -10,6 +10,12 @@ function onPageLoad() {
   var url = new URL(window.location.href);
   var page = url.searchParams.get("page");
 
+  // Get current settings for localStorage
+  var currentTheme = localStorage.getItem("THEME");
+  if (currentTheme == "DARK") {
+    toggleDarkMode();
+  } // if
+
   buildNavigation();
 
   // Check if there are any URL params
