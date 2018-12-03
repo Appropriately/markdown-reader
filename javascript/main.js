@@ -1,7 +1,7 @@
 var HTML_DIV_LAYER = '<div class="layer mx-2"></div>';
-var ROOT_FOLDER = 'markdown';
+var ROOT_FOLDER = '.';
 var HUMAN_SIZES = ['B', 'kB', 'MB', 'GB', 'TB'];
-var IGNORE_INFO = ['README.md']; // Files that don't have information
+var IGNORE_INFO = []; // Files that don't have information
 
 
 // Function that will handle the site being loaded
