@@ -86,7 +86,7 @@ def directory_to_json(starting_directory):
             if (not sub_directories and not files_in_directory):
                 break
 
-            folder_structure = full_path.split('/')
+            folder_structure = full_path.split('/')[1:] # Skip '.'
 
             json_pointer = json_object
             index = 0

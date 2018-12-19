@@ -1,5 +1,6 @@
 var HTML_DIV_LAYER = '<div class="layer mx-2"></div>';
 var ROOT_FOLDER = '.';
+var APPLICATION_FOLDER = '.'
 var HUMAN_SIZES = ['B', 'kB', 'MB', 'GB', 'TB'];
 var IGNORE_INFO = []; // Files that don't have information
 
@@ -162,6 +163,8 @@ function buildInformationPanel(filePath) {
     dataType: 'json',
     async: true,
     success: function(json) {
+      console.log(filePathStructure)
+      console.log(json)
       var result = findFullPathInJSON(json, filePathStructure, filePath);
       if (result === null) handleError();
       else {

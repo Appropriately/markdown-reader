@@ -1,66 +1,66 @@
 {
-  "directory": ".",
+  "directory": ".", 
+  "files": [
+    {
+      "full_path": "./README.md", 
+      "file": "README.md", 
+      "size": 2223
+    }
+  ], 
   "directories": [
     {
-      "directory": "Markdown",
+      "directory": "Markdown", 
+      "files": [
+        {
+          "description": "The index page", 
+          "author": "Sean Lewis", 
+          "full_path": "./markdown/index.md", 
+          "file": "Index", 
+          "size": 601
+        }, 
+        {
+          "description": "A page about me", 
+          "author": "Sean Lewis", 
+          "full_path": "./markdown/aboutme.md", 
+          "file": "About me", 
+          "size": 59
+        }, 
+        {
+          "description": "A bunch of experiments for testing the capabilities of showdown", 
+          "author": "Sean Lewis", 
+          "full_path": "./markdown/testpage.md", 
+          "file": "Test page", 
+          "size": 4409
+        }
+      ], 
       "directories": [
         {
-          "directory": "Notes",
+          "directory": "Notes", 
+          "files": [
+            {
+              "description": "Notes that I took while at the Secarma Hacker101 course", 
+              "author": "Sean Lewis", 
+              "full_path": "./markdown/notes/pentestingnotes.md", 
+              "file": "Secarma Pentesting notes", 
+              "size": 29290
+            }
+          ], 
           "directories": [
             {
-              "directory": "Symantec",
+              "directory": "Symantec", 
               "files": [
                 {
-                  "file": "Symantec VIP",
-                  "full_path": "./markdown/notes/symantec/vip.md",
-                  "size": 14463,
-                  "description": "Notes on Symantec VIP",
-                  "author": "Sean Lewis"
+                  "description": "Notes on Symantec VIP", 
+                  "author": "Sean Lewis", 
+                  "full_path": "./markdown/notes/symantec/vip.md", 
+                  "file": "Symantec VIP", 
+                  "size": 14463
                 }
               ]
             }
-          ],
-          "files": [
-            {
-              "file": "Secarma Pentesting notes",
-              "full_path": "./markdown/notes/pentestingnotes.md",
-              "size": 29290,
-              "description": "Notes that I took while at the Secarma Hacker101 course",
-              "author": "Sean Lewis"
-            }
           ]
         }
-      ],
-      "files": [
-        {
-          "file": "Index",
-          "full_path": "./markdown/index.md",
-          "size": 601,
-          "description": "The index page",
-          "author": "Sean Lewis"
-        },
-        {
-          "file": "About me",
-          "full_path": "./markdown/aboutme.md",
-          "size": 59,
-          "description": "A page about me",
-          "author": "Sean Lewis"
-        },
-        {
-          "file": "Test page",
-          "full_path": "./markdown/testpage.md",
-          "size": 4409,
-          "description": "A bunch of experiments for testing the capabilities of showdown",
-          "author": "Sean Lewis"
-        }
       ]
-    }
-  ],
-  "files": [
-    {
-      "file": "README.md",
-      "full_path": "./README.md",
-      "size": 2223
     }
   ]
 }

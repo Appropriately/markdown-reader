@@ -8,12 +8,12 @@ function toggleMenu() {
 
 
 function renderIndex() {
-  loadMarkdownFromFile(ROOT_FOLDER + '/index.md');
+  loadMarkdownFromFile(APPLICATION_FOLDER + '/markdown/index.md');
 } // renderIndex
 
 
 function renderReadme() {
-  loadMarkdownFromFile('README.md');
+  loadMarkdownFromFile(APPLICATION_FOLDER + '/README.md');
 } // renderReadme
 
 
