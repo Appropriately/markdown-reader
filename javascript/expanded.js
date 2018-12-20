@@ -8,7 +8,7 @@ function toggleMenu() {
 
 
 function renderIndex() {
-  loadMarkdownFromFile(APPLICATION_FOLDER + '/markdown/index.md');
+  loadMarkdownFromFile(APPLICATION_FOLDER + '/index.md');
 } // renderIndex
 
 

@@ -1,0 +1,3 @@
+[submodule "markdown-notes"]
+	path = markdown-notes
+	url = https://github.com/Appropriately/markdown-notes

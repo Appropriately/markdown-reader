@@ -2,6 +2,13 @@
   "directory": ".", 
   "files": [
     {
+      "description": "The index page", 
+      "author": "Sean Lewis", 
+      "full_path": "./index.md", 
+      "file": "Index", 
+      "size": 601
+    }, 
+    {
       "full_path": "./README.md", 
       "file": "README.md", 
       "size": 2223
@@ -9,26 +16,19 @@
   ], 
   "directories": [
     {
-      "directory": "Markdown", 
+      "directory": "Markdown-notes", 
       "files": [
-        {
-          "description": "The index page", 
-          "author": "Sean Lewis", 
-          "full_path": "./markdown/index.md", 
-          "file": "Index", 
-          "size": 601
-        }, 
         {
           "description": "A page about me", 
           "author": "Sean Lewis", 
-          "full_path": "./markdown/aboutme.md", 
+          "full_path": "./markdown-notes/aboutme.md", 
           "file": "About me", 
           "size": 59
         }, 
         {
           "description": "A bunch of experiments for testing the capabilities of showdown", 
           "author": "Sean Lewis", 
-          "full_path": "./markdown/testpage.md", 
+          "full_path": "./markdown-notes/testpage.md", 
           "file": "Test page", 
           "size": 4409
         }
@@ -40,9 +40,9 @@
             {
               "description": "Notes that I took while at the Secarma Hacker101 course", 
               "author": "Sean Lewis", 
-              "full_path": "./markdown/notes/pentestingnotes.md", 
+              "full_path": "./markdown-notes/notes/pentestingnotes.md", 
               "file": "Secarma Pentesting notes", 
-              "size": 29290
+              "size": 29284
             }
           ], 
           "directories": [
@@ -52,9 +52,9 @@
                 {
                   "description": "Notes on Symantec VIP", 
                   "author": "Sean Lewis", 
-                  "full_path": "./markdown/notes/symantec/vip.md", 
+                  "full_path": "./markdown-notes/notes/symantec/vip.md", 
                   "file": "Symantec VIP", 
-                  "size": 14463
+                  "size": 14427
                 }
               ]
             }
