@@ -13,7 +13,7 @@ A Javascript Markdown reader produced using:
 
 ## Usage
 
-Because I'm very lazy, you can run the application by simply running the `run.sh` script at the project root.
+Because I'm very lazy, you can run the application by simply running the `update_and_run.sh` script at the project root.
 
 ```bash
 bash run.sh
